@@ -6,8 +6,11 @@ RUN mkdir $BASEDIR
 
 # required packages
 RUN apt-get update && apt-get install -y \
-  netcdf-fortran libpng15 iproute-tc tcp_wrappers-libs sendmail procmail psmisc procps-ng mailx \
-  findutils ImageMagick perl-CPAN ncl netcdf libpng libjpeg-turbo which
+  curl mailutils psmisc procps ncl-ncarg \
+  libpng16-16 libjpeg62-turbo iproute2 libwrap0 \
+  findutils imagemagick perl libproc-background-perl ncl-tools netcdf-bin
+
+# netcdf-fortran sendmail procmail psmisc procps-ng bsd-mailx 
   
 # configure CPAN and install required modules
 RUN (echo y;echo o conf prerequisites_policy follow;echo o conf commit) | cpan \
